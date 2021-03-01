@@ -14,10 +14,16 @@ public class AllTokenRecognizer implements IRecognizer{
 	@Qualifier("CsvFileReader")
 	private IFileReader iFileReader;
 	
+	private static AllTokenRecognizer instance;
 	
 	@Autowired
 	public AllTokenRecognizer(IFileReader iFileReader) {
 		this.iFileReader = iFileReader;
+	}
+	
+	@Override
+	public void setInstance() {
+		instance = this;
 	}
 
 	@Override
@@ -30,7 +36,6 @@ public class AllTokenRecognizer implements IRecognizer{
 			if(iFileReader.isOnList(s, MALE_NAMES))
 				nMale++;
 		}
-		System.out.println("female: " + nFemale + " male: " + nMale);//TODO:remove 
 		return resultGender(nFemale, nMale);
 	}
 	
@@ -42,5 +47,8 @@ public class AllTokenRecognizer implements IRecognizer{
 		return "INCONCLUSIVE";		
 	}
 	
-
+	public static AllTokenRecognizer getInstance() {
+		return instance;
+	}
+	
 }

@@ -8,5 +8,7 @@ public interface IRecognizer {
 	String MALE_NAMES = "src/main/resources/static/datafiles/male_names.csv";
 	
 	String genderGuessing(String fullname)throws IOException;
+	
+	void setInstance();
 
 }

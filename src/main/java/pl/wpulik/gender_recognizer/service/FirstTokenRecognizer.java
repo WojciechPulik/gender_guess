@@ -14,14 +14,20 @@ public class FirstTokenRecognizer implements IRecognizer{
 	@Qualifier("CsvFileReader")
 	private IFileReader iFileReader;
 	
+	private static FirstTokenRecognizer instance;
+	
 	@Autowired
 	public FirstTokenRecognizer(IFileReader iFileReader) {
 		this.iFileReader = iFileReader;
 	}
 	
 	@Override
+	public void setInstance() {
+		instance = this;
+	}
+	
+	@Override
 	public String genderGuessing(String fullname)throws IOException {
-		
 		String token = getFirstName(fullname).toUpperCase();
 		String gender = "INCONCLUSIVE";
 		if(iFileReader.isOnList(token, MALE_NAMES))
@@ -35,6 +41,8 @@ public class FirstTokenRecognizer implements IRecognizer{
 		return fullname.split(" ")[0];
 	}
 	
-	
+	public static FirstTokenRecognizer getInstance() {
+		return instance;
+	}
 
 }

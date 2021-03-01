@@ -1,7 +1,5 @@
 package pl.wpulik.gender_recognizer.controller;
 
-import java.io.IOException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,12 +21,7 @@ public class NameGenderController {
 
 	@PostMapping("/guess")
 	public String genderGuessing(@RequestParam int variant, @RequestParam String fullname) {
-		String resultGender = "";
-		try {
-			resultGender = recognizerVariants.chooseVariantGuessing(variant, fullname);
-		}catch(IOException e) {
-			System.err.println("File reading error. " + e.getMessage());
-		}
+		String resultGender = recognizerVariants.chooseVariantGuessing(variant, fullname);
 		return resultGender;
 	}
 	

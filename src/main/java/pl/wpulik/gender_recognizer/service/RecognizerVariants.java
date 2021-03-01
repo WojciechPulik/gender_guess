@@ -18,17 +18,21 @@ public class RecognizerVariants {
 		this.allTokenRecognizer = allTokenRecognizer;
 	}
 	
-	public String chooseVariantGuessing(int variant, String fullname)throws IOException {
-		switch(variant) {
-			case 1:
-				return firstTokenRecognizer.genderGuessing(fullname);
-			case 2:
-				return allTokenRecognizer.genderGuessing(fullname);
-			default:
-				return "VARIANT NOT FOUND";
-		}
+	public String chooseVariantGuessing(int variant, String fullname){
+		setInstances();
+		IRecognizer instance = Variants.setVariant(variant).getInstance();
+		try {
+			return instance.genderGuessing(fullname);
+		} catch (IOException e) {
+			System.err.println("FILE READING ERROR " + e.getMessage());
+			return "INCONCLUSIVE";
+		}	
 	}
 	
+	private void setInstances() {
+		firstTokenRecognizer.setInstance();
+		allTokenRecognizer.setInstance();
+	}
 	
 	
 
