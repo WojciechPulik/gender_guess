@@ -3,6 +3,8 @@ package pl.wpulik.gender_recognizer.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,15 +27,21 @@ public class NameGenderController {
 	}
 
 	@PostMapping("/guess")
-	public String genderGuessing(@RequestParam int variant, @RequestParam String fullname) {
+	public ResponseEntity<String> genderGuessing(@RequestParam int variant, @RequestParam String fullname) {
 		String resultGender = recognizerVariants.chooseVariantGuessing(variant, fullname);
-		return resultGender;
+		if(!resultGender.isEmpty())
+			return new ResponseEntity<>(resultGender, HttpStatus.FOUND);
+		else
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	@PostMapping("/tokens")
-	public List<String> availableTokens(@RequestParam String gender) {
+	public ResponseEntity<List<String>> availableTokens(@RequestParam String gender) {
 		List<String> resultList = genderService.allGenderTokens(gender);
-		return resultList;
+		if(!resultList.isEmpty())
+			return new ResponseEntity<>(resultList, HttpStatus.FOUND);
+		else
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 
