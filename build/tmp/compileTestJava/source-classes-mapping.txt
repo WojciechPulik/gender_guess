@@ -1,0 +1,14 @@
+pl/wpulik/gender_recognizer/controller/NameGenderControllerTest.java
+ pl.wpulik.gender_recognizer.controller.NameGenderControllerTest
+pl/wpulik/gender_recognizer/datareader/CsvFileReaderTest.java
+ pl.wpulik.gender_recognizer.datareader.CsvFileReaderTest
+pl/wpulik/gender_recognizer/NameGenderApplicationTests.java
+ pl.wpulik.gender_recognizer.NameGenderApplicationTests
+pl/wpulik/gender_recognizer/service/GenderServiceTest.java
+ pl.wpulik.gender_recognizer.service.GenderServiceTest
+pl/wpulik/gender_recognizer/service/AllTokenRecognizerTest.java
+ pl.wpulik.gender_recognizer.service.AllTokenRecognizerTest
+org/junit/runner/RunWith.java
+ org.junit.runner.RunWith
+pl/wpulik/gender_recognizer/service/FirstTokenRecognizerTest.java
+ pl.wpulik.gender_recognizer.service.FirstTokenRecognizerTest

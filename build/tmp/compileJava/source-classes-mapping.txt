@@ -1,0 +1,20 @@
+pl/wpulik/gender_recognizer/service/RecognizerVariants.java
+ pl.wpulik.gender_recognizer.service.RecognizerVariants
+pl/wpulik/gender_recognizer/service/FirstTokenRecognizer.java
+ pl.wpulik.gender_recognizer.service.FirstTokenRecognizer
+pl/wpulik/gender_recognizer/service/IRecognizer.java
+ pl.wpulik.gender_recognizer.service.IRecognizer
+pl/wpulik/gender_recognizer/service/GenderService.java
+ pl.wpulik.gender_recognizer.service.GenderService
+pl/wpulik/gender_recognizer/service/AllTokenRecognizer.java
+ pl.wpulik.gender_recognizer.service.AllTokenRecognizer
+pl/wpulik/gender_recognizer/datareader/CsvFileReader.java
+ pl.wpulik.gender_recognizer.datareader.CsvFileReader
+pl/wpulik/gender_recognizer/service/Variants.java
+ pl.wpulik.gender_recognizer.service.Variants
+pl/wpulik/gender_recognizer/controller/NameGenderController.java
+ pl.wpulik.gender_recognizer.controller.NameGenderController
+pl/wpulik/gender_recognizer/datareader/IFileReader.java
+ pl.wpulik.gender_recognizer.datareader.IFileReader
+pl/wpulik/gender_recognizer/NameGenderApplication.java
+ pl.wpulik.gender_recognizer.NameGenderApplication
